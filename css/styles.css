@@ -1315,6 +1315,11 @@ button {
   font-size: 1.35rem;
 }
 
+.footer-brand .brand-mark {
+  width: clamp(96px, 20vw, 128px);
+  height: auto;
+}
+
 .footer-tagline {
   margin-top: 1.4rem;
   max-width: 24em;
