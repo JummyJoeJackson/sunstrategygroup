@@ -1316,7 +1316,7 @@ button {
 }
 
 .footer-brand .brand-mark {
-  width: clamp(96px, 20vw, 128px);
+  width: 50%;
   height: auto;
 }
 
