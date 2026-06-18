@@ -343,7 +343,7 @@ button {
 }
 
 .brand-mark {
-  height: 100%;
+  height: 70%;
   width: auto;
   flex: none;
 }
@@ -1316,7 +1316,7 @@ button {
 }
 
 .footer-brand .brand-mark {
-  width: 50%;
+  width: 40%;
   height: auto;
 }
 
