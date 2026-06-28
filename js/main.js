@@ -132,4 +132,53 @@
       if (note) note.hidden = false;
     });
   }
+
+  /* ---------- Reviews Carousel ---------- */
+
+  var carousel = document.getElementById("reviews-carousel");
+  var dotsContainer = document.getElementById("reviews-dots");
+  if (carousel && dotsContainer) {
+    var dots = dotsContainer.querySelectorAll(".carousel-dot");
+
+    // Click handler for dots
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () {
+        var slideIndex = parseInt(dot.getAttribute("data-slide"), 10);
+        if (isNaN(slideIndex)) return;
+
+        // Scroll to corresponding slide
+        carousel.scrollTo({
+          left: slideIndex * carousel.clientWidth,
+          behavior: "smooth",
+        });
+
+        // Set active dot immediately
+        updateActiveDot(slideIndex);
+      });
+    });
+
+    // Scroll listener to update dots on swipe
+    var scrollTimeout;
+    carousel.addEventListener("scroll", function () {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function () {
+        if (carousel.clientWidth > 0) {
+          var activeIndex = Math.round(carousel.scrollLeft / carousel.clientWidth);
+          updateActiveDot(activeIndex);
+        }
+      }, 60);
+    }, { passive: true });
+
+    function updateActiveDot(index) {
+      dots.forEach(function (dot, i) {
+        if (i === index) {
+          dot.classList.add("is-active");
+          dot.setAttribute("aria-label", "Go to review " + (i + 1) + " (current slide)");
+        } else {
+          dot.classList.remove("is-active");
+          dot.setAttribute("aria-label", "Go to review " + (i + 1));
+        }
+      });
+    }
+  }
 })();
