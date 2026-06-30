@@ -1580,14 +1580,6 @@ button {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.85;
-  transition: filter 0.3s, opacity 0.3s;
-}
-
-.client-logo-wrapper:hover img {
-  filter: none;
-  opacity: 1;
 }
 
 .client-details {
