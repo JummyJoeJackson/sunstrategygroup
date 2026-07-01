@@ -1563,7 +1563,7 @@ button {
   align-items: center;
   justify-content: center;
   aspect-ratio: 16 / 10;
-  max-width: 240px;
+  max-width: 500px;
   background: var(--paper);
   border: 1px solid var(--line-strong);
   padding: 1.5rem;
