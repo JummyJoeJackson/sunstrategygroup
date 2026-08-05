@@ -1558,30 +1558,6 @@ button {
   gap: 1.5rem;
 }
 
-.client-logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 12 / 10;
-  max-width: 500px;
-  background: var(--paper);
-  border: 1px solid var(--line-strong);
-  padding: 1.5rem;
-  overflow: hidden;
-  transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
-}
-
-.client-logo-wrapper:hover {
-  border-color: var(--ink);
-  box-shadow: 0 4px 12px rgba(18, 18, 18, 0.03);
-}
-
-.client-logo-wrapper img {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-}
-
 .client-details {
   display: flex;
   flex-direction: column;
