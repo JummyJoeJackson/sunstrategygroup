@@ -1558,6 +1558,10 @@ button {
   gap: 1.5rem;
 }
 
+.client-meta img {
+  border: 1px solid var(--line-strong);
+}
+
 .client-details {
   display: flex;
   flex-direction: column;
