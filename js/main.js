@@ -219,6 +219,32 @@
   var dotsContainer = document.getElementById("reviews-dots");
   if (carousel && dotsContainer) {
     var dots = dotsContainer.querySelectorAll(".carousel-dot");
+    var slides = carousel.querySelectorAll(".carousel-slide");
+
+    // Resize the viewport to fit the currently active slide
+    function syncHeight(index) {
+      var slide = slides[index];
+      if (!slide) return;
+      carousel.style.height = slide.offsetHeight + "px";
+    }
+
+    // Set initial height once fonts/images have settled
+    function initHeight() {
+      syncHeight(0);
+    }
+    if (document.readyState === "complete") {
+      initHeight();
+    } else {
+      window.addEventListener("load", initHeight);
+    }
+
+    // Re-sync on window resize
+    window.addEventListener("resize", function () {
+      var activeIndex = carousel.clientWidth > 0
+        ? Math.round(carousel.scrollLeft / carousel.clientWidth)
+        : 0;
+      syncHeight(activeIndex);
+    });
 
     // Click handler for dots
     dots.forEach(function (dot) {
@@ -232,12 +258,13 @@
           behavior: "smooth",
         });
 
-        // Set active dot immediately
+        // Update dot and height immediately
         updateActiveDot(slideIndex);
+        syncHeight(slideIndex);
       });
     });
 
-    // Scroll listener to update dots on swipe
+    // Scroll listener to update dots and height on swipe
     var scrollTimeout;
     carousel.addEventListener("scroll", function () {
       clearTimeout(scrollTimeout);
@@ -245,6 +272,7 @@
         if (carousel.clientWidth > 0) {
           var activeIndex = Math.round(carousel.scrollLeft / carousel.clientWidth);
           updateActiveDot(activeIndex);
+          syncHeight(activeIndex);
         }
       }, 60);
     }, { passive: true });

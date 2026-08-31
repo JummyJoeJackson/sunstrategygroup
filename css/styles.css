@@ -1446,6 +1446,7 @@ button {
   -ms-overflow-style: none; /* IE 10+ */
   margin: 0;
   padding: 0;
+  transition: height 0.4s var(--ease-out);
 }
 
 .carousel-viewport::-webkit-scrollbar {
