@@ -1457,6 +1457,7 @@ button {
   flex: 0 0 100%;
   width: 100%;
   scroll-snap-align: start;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   align-items: center;
