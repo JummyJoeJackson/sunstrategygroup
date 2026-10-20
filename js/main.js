@@ -130,8 +130,15 @@
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+            var el = entry.target;
+            el.classList.add("is-visible");
+            // Release the GPU layer only after the animation finishes,
+            // not when .is-visible is added (which would be the wrong frame).
+            el.addEventListener("transitionend", function cleanup() {
+              el.style.willChange = "auto";
+              el.removeEventListener("transitionend", cleanup);
+            }, { once: true });
+            observer.unobserve(el);
           }
         });
       },
