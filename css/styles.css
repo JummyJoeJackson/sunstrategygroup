@@ -957,13 +957,11 @@ main > section:not([class]) { padding-block: var(--section-pad); }
 [data-reveal] {
   opacity: 0;
   transform: translateY(44px) scale(0.97);
-  filter: blur(6px);
   transition:
     opacity 1.1s var(--ease),
-    transform 1.1s var(--ease),
-    filter 1.1s var(--ease);
+    transform 1.1s var(--ease);
 }
-[data-reveal].is-visible { opacity: 1; transform: none; filter: none; }
+[data-reveal].is-visible { opacity: 1; transform: none; }
 [data-reveal="2"] { transition-delay: 0.09s; }
 [data-reveal="3"] { transition-delay: 0.18s; }
 [data-reveal="4"] { transition-delay: 0.27s; }
@@ -977,7 +975,6 @@ main > section:not([class]) { padding-block: var(--section-pad); }
 .client-project[data-reveal].is-visible {
   transition:
     opacity 1.1s var(--ease),
-    filter 1.1s var(--ease),
     transform var(--t-med) var(--ease),
     border-color var(--t-med) ease,
     background-color var(--t-med) ease,
@@ -1020,7 +1017,7 @@ main > section:not([class]) { padding-block: var(--section-pad); }
   .page-head::after { animation: sunrise-corner 2.2s var(--ease) 0.3s both; }
 }
 
-@keyframes rise-strong { from { opacity: 0; transform: translateY(36px); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes rise-strong { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 @keyframes drop { from { opacity: 0; transform: translateY(-28px) scale(0.97); } to { opacity: 1; transform: none; } }
 @keyframes sunrise { from { opacity: 0; transform: translateY(160px); } to { opacity: 1; transform: none; } }
