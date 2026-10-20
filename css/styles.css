@@ -1064,37 +1064,48 @@ main > section:not([class]) { padding-block: var(--section-pad); }
   .nav-toggle { display: block; }
   .header-inner { padding-left: 1.1rem; }
   .site-nav {
-    position: fixed; inset: 8px; z-index: 65;
-    flex-direction: column; align-items: stretch; justify-content: center;
-    gap: 0.25rem;
-    padding: 5rem 1.25rem 1.25rem;
+    position: fixed;
+    top: 80px; left: 8px; right: 8px;
+    z-index: 65;
+    flex-direction: column; align-items: stretch; justify-content: flex-start;
+    gap: 0.2rem;
+    padding: 1rem 0.75rem 1.25rem;
     border: 1px solid var(--line-2);
     border-radius: var(--r-xl);
     background:
-      radial-gradient(480px 300px at 50% 115%, var(--sun-faint), transparent 70%),
+      radial-gradient(500px 280px at 50% 0%, var(--sun-faint), transparent 70%),
       var(--bg-2);
-    box-shadow: 0 30px 80px -20px #000;
+    box-shadow: 0 24px 60px -16px #000;
     visibility: hidden; opacity: 0;
-    transform: scale(0.985);
-    transition: opacity 0.35s var(--ease), transform var(--t-med) var(--ease), visibility 0.35s;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), visibility 0.3s;
   }
   .nav-open .site-nav { visibility: visible; opacity: 1; transform: none; }
   .nav-open { overflow: hidden; }
   .site-nav a:not(.btn) {
-    padding: 0.85rem 1.15rem;
+    padding: 0.85rem 1rem;
     border-radius: var(--r-md);
-    font-size: clamp(1.4rem, 6vw, 1.85rem); font-weight: 400; letter-spacing: -0.03em;
-    color: var(--cream);
-    opacity: 0; transform: translateY(12px);
-    transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease), background-color var(--t-fast);
+    font-size: 1.1rem; font-weight: 400; letter-spacing: -0.01em;
+    color: var(--cream-2);
+    opacity: 0; transform: translateY(8px);
+    transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease), background-color var(--t-fast), color var(--t-fast);
   }
+  .site-nav a:not(.btn):hover { color: var(--cream); background: rgba(244,241,232,0.06); }
   .nav-open .site-nav a:not(.btn) { opacity: 1; transform: none; }
-  .nav-open .site-nav a:nth-child(1) { transition-delay: 0.05s; }
-  .nav-open .site-nav a:nth-child(2) { transition-delay: 0.09s; }
-  .nav-open .site-nav a:nth-child(3) { transition-delay: 0.13s; }
-  .nav-open .site-nav a:nth-child(4) { transition-delay: 0.17s; }
-  .nav-open .site-nav a:nth-child(5) { transition-delay: 0.21s; }
-  .site-nav .btn { margin: 1rem 0 0; min-height: 3.3rem; font-size: 1rem; }
+  .nav-open .site-nav a:nth-child(1) { transition-delay: 0.04s; }
+  .nav-open .site-nav a:nth-child(2) { transition-delay: 0.08s; }
+  .nav-open .site-nav a:nth-child(3) { transition-delay: 0.12s; }
+  .nav-open .site-nav a:nth-child(4) { transition-delay: 0.16s; }
+  .nav-open .site-nav a:nth-child(5) { transition-delay: 0.20s; }
+  .nav-open .site-nav a:nth-child(6) { transition-delay: 0.24s; }
+  .site-nav .btn {
+    margin: 0.5rem 0 0; width: 100%;
+    min-height: 3rem; font-size: 0.95rem;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity var(--t-med) var(--ease), transform var(--t-med) var(--ease);
+  }
+  .nav-open .site-nav .btn { opacity: 1; transform: none; }
 
   .split-row, .contact-layout, .client-project { grid-template-columns: minmax(0, 1fr); }
   .client-meta { position: static; min-height: 170px; }
