@@ -253,23 +253,42 @@
       syncHeight(activeIndex);
     });
 
+    var currentIndex = 0;
+
+    function goToSlide(slideIndex) {
+      // Scroll to corresponding slide
+      carousel.scrollTo({
+        left: slideIndex * carousel.clientWidth,
+        behavior: "smooth",
+      });
+
+      // Update dot and height immediately
+      updateActiveDot(slideIndex);
+      syncHeight(slideIndex);
+    }
+
     // Click handler for dots
     dots.forEach(function (dot) {
       dot.addEventListener("click", function () {
         var slideIndex = parseInt(dot.getAttribute("data-slide"), 10);
         if (isNaN(slideIndex)) return;
-
-        // Scroll to corresponding slide
-        carousel.scrollTo({
-          left: slideIndex * carousel.clientWidth,
-          behavior: "smooth",
-        });
-
-        // Update dot and height immediately
-        updateActiveDot(slideIndex);
-        syncHeight(slideIndex);
+        goToSlide(slideIndex);
       });
     });
+
+    // Prev/next arrows (wrap around at either end)
+    var prevBtn = document.getElementById("reviews-prev");
+    var nextBtn = document.getElementById("reviews-next");
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        goToSlide((currentIndex - 1 + slides.length) % slides.length);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        goToSlide((currentIndex + 1) % slides.length);
+      });
+    }
 
     // Scroll listener to update dots and height on swipe
     var scrollTimeout;
@@ -285,6 +304,7 @@
     }, { passive: true });
 
     function updateActiveDot(index) {
+      currentIndex = index;
       dots.forEach(function (dot, i) {
         if (i === index) {
           dot.classList.add("is-active");

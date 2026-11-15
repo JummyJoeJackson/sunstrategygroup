@@ -357,6 +357,8 @@ main > section:not([class]) { padding-block: var(--section-pad); }
 
 /* mission */
 .mission-band { padding-block: clamp(1.5rem, 4vw, 2.5rem); background: none; }
+/* home sections share the mission band's rhythm so every gap matches */
+section.home-band { padding-block: clamp(1.5rem, 4vw, 2.5rem); }
 .mission-band blockquote {
   position: relative; overflow: hidden;
   padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.5rem, 7vw, 6rem);
@@ -679,7 +681,23 @@ main > section:not([class]) { padding-block: var(--section-pad); }
 }
 .review-author strong { font-weight: 500; }
 .author-title { font-size: 0.86rem; font-weight: 400; color: var(--cream-3); }
-.carousel-dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 2rem; }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 2rem; }
+.carousel-dots { display: flex; justify-content: center; gap: 0.45rem; }
+.carousel-arrows { display: flex; gap: 0.5rem; }
+.carousel-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; padding: 0;
+  border: 1px solid var(--line); border-radius: var(--pill);
+  background: transparent; color: var(--cream);
+  cursor: pointer;
+  transition: border-color var(--t-fast), color var(--t-fast), background-color var(--t-fast);
+}
+.carousel-arrow svg { width: 15px; height: 15px; }
+.carousel-arrow--prev svg { transform: scaleX(-1); }
+.carousel-arrow:hover { border-color: var(--sun); color: var(--sun); }
+.carousel-arrow:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+/* touch devices swipe, so arrows are desktop-only */
+@media (hover: none) { .carousel-arrows { display: none; } }
 .carousel-dot {
   width: 7px; height: 7px; padding: 0;
   border: 0; border-radius: var(--pill);
@@ -920,7 +938,8 @@ main > section:not([class]) { padding-block: var(--section-pad); }
 .carousel-slide { align-items: flex-start; text-align: left; padding-inline: clamp(1.5rem, 6vw, 4.5rem); }
 .review-quote { max-width: 52rem; font-size: clamp(1.3rem, 2.5vw, 2rem); line-height: 1.4; letter-spacing: -0.03em; }
 .review-author { align-items: flex-start; }
-.carousel-dots { justify-content: flex-start; padding-inline: clamp(1.5rem, 6vw, 4.5rem); }
+.carousel-controls { justify-content: space-between; padding-inline: clamp(1.5rem, 6vw, 4.5rem); }
+.carousel-dots { justify-content: flex-start; }
 
 /* inner page heads: a sun rising in the corner */
 .page-head {

@@ -76,7 +76,7 @@
     </section>
 
     <!-- Services preview -->
-    <section class="section" aria-labelledby="services-preview-title" style="padding-block: 0;">
+    <section class="section home-band" aria-labelledby="services-preview-title">
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
@@ -124,15 +124,15 @@
     </section>
 
     <!-- Reviews Carousel -->
-    <section class="reviews-section" aria-labelledby="reviews-title" style="padding-top: 0;">
+    <section class="reviews-section home-band" aria-labelledby="reviews-title">
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
-            <p class="eyebrow">Client Reviews </p>
+            <p class="eyebrow">Client Reviews</p>
             <h2 class="display-l" id="reviews-title">What Our <em>Clients Say</em></h2>
           </div>
         </div>
-        
+
         <div class="carousel-container" data-reveal>
           <div class="carousel-viewport" id="reviews-carousel">
             <!-- Review 1 -->
@@ -189,16 +189,27 @@
                 </cite>
               </blockquote>
             </div>
-
           </div>
-          
-          <!-- Carousel dots -->
-          <div class="carousel-dots" id="reviews-dots" aria-label="Review pagination">
-            <button class="carousel-dot is-active" aria-label="Go to review 1" data-slide="0"></button>
-            <button class="carousel-dot" aria-label="Go to review 2" data-slide="1"></button>
-            <button class="carousel-dot" aria-label="Go to review 3" data-slide="2"></button>
-            <button class="carousel-dot" aria-label="Go to review 4" data-slide="3"></button>
-            <button class="carousel-dot" aria-label="Go to review 5" data-slide="4"></button>
+
+          <div class="carousel-controls">
+            <!-- Carousel dots -->
+            <div class="carousel-dots" id="reviews-dots" aria-label="Review pagination">
+              <button class="carousel-dot is-active" aria-label="Go to review 1" data-slide="0"></button>
+              <button class="carousel-dot" aria-label="Go to review 2" data-slide="1"></button>
+              <button class="carousel-dot" aria-label="Go to review 3" data-slide="2"></button>
+              <button class="carousel-dot" aria-label="Go to review 4" data-slide="3"></button>
+              <button class="carousel-dot" aria-label="Go to review 5" data-slide="4"></button>
+            </div>
+
+            <!-- Carousel arrows -->
+            <div class="carousel-arrows">
+              <button class="carousel-arrow carousel-arrow--prev" id="reviews-prev" aria-label="Previous review">
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+              </button>
+              <button class="carousel-arrow" id="reviews-next" aria-label="Next review">
+                <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 8h13M9 3l5 5-5 5"/></svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -218,7 +229,7 @@
             </a>
           </div>
         </div>
-        
+
         <svg class="cta-sun" data-reveal viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract horizon sun icon">
           <g transform="translate(120,100) scale(3)">
             <path d="M -26 8 A 26 26 0 0 1 26 8 Z" fill="#E3A83C"/>
@@ -227,7 +238,6 @@
             <line x1="-18" y1="33" x2="18" y2="33" stroke="#E3A83C" stroke-width="1.5" opacity="0.25"/>
           </g>
         </svg>
-
       </div>
     </section>
 
