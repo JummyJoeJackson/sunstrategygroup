@@ -595,20 +595,30 @@ section.home-band { padding-block: clamp(1.5rem, 4vw, 2.5rem); }
 }
 .client-meta {
   position: sticky; top: 92px;
-  display: grid; place-items: center;
-  min-height: 220px;
-  padding: 2rem;
-  border-radius: calc(var(--r-xl) - 0.75rem);
-  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
   align-self: start;
+  justify-self: center;
+  width: 100%;
+  max-width: 260px;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line-2);
+  background: var(--surface-2);
   overflow: hidden;
+  box-shadow: 0 14px 32px -12px rgba(0, 0, 0, 0.7);
+  transition: border-color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
 }
 .client-meta img {
-  max-height: 110px; width: auto; max-width: 80%; object-fit: contain;
-  border-radius: 10px;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform var(--t-slow) var(--ease);
 }
-.client-project:hover .client-meta img { transform: scale(1.04); }
+.client-project:hover .client-meta {
+  border-color: rgba(238, 178, 90, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.85), 0 0 24px -4px var(--sun-glow);
+}
+.client-project:hover .client-meta img { transform: scale(1.05); }
 .client-logo-wrapper { display: grid; place-items: center; }
 .client-details { min-width: 0; padding-block: 0.5rem; }
 .client-details h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.2; margin-bottom: 1rem; }
@@ -1011,7 +1021,7 @@ section.home-band { padding-block: clamp(1.5rem, 4vw, 2.5rem); }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0) scale(0.97); }
 .member:hover .member-photo img { transform: scale(1.07); }
-.client-project:hover .client-meta img { transform: scale(1.08) rotate(-1.5deg); }
+.client-project:hover .client-meta img { transform: scale(1.05); }
 
 /* closing sun drifts once it has risen */
 .cta-sun[data-reveal] { transform: translateY(60px); transition-duration: 1.6s; }
@@ -1127,7 +1137,7 @@ section.home-band { padding-block: clamp(1.5rem, 4vw, 2.5rem); }
   .nav-open .site-nav .btn { opacity: 1; transform: none; }
 
   .split-row, .contact-layout, .client-project { grid-template-columns: minmax(0, 1fr); }
-  .client-meta { position: static; min-height: 170px; }
+  .client-meta { position: static; min-height: auto; margin-inline: auto; }
   .cta-inner { grid-template-columns: minmax(0, 1fr); }
   .cta-sun { display: none; }
   .mission-band blockquote { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
